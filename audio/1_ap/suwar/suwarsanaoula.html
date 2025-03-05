@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السور</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+.left-section {
+    display: flex;
+    align-items: center; /* جعل الأيقونة وزر العودة على نفس الخط */
+    gap: 10px; /* مسافة بين العناصر */
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.icon {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.back-button {
+    right: 10px;
+    top: 50%;
+    font-size: 24px;
+    color: white;
+    background: #4CAF50;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="شعار الموقع">
+            <h4>تلقين القرآن الكريم</h4>
+        </div>
+        <div class="left-section">
+            <span class="page-title">تلقين السور</span>
+            <ion-icon class="icon" name="ear-outline"></ion-icon>
+        </div>
+        
+    </header>
+    <main>
+        <ion-icon class="back-button" name="home-outline" onclick="goHome()"></ion-icon>
+        <ion-icon title="العودة إلى الوراء" class="backspace-button" name="backspace-outline" onclick="goBack()"></ion-icon>
+
+        <div class="container">
+            <div class="surah" onclick="playSurah('https:\\archive.org/download/20250304_20250304_0836/%D8%AA%D9%84%D9%82%D9%8A%D9%86%20%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%A8%D9%84%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A.mp3')">
+                <h2>سورة البلد اللوح الثاني</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="surah" onclick="playSurah('https:\\archive.org/download/20250304_20250304_0849/%D8%AA%D9%84%D9%82%D9%8A%D9%86%20%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%A8%D9%84%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%20%D8%A7%D9%84%D8%A3%D9%88%D9%84.mp3')">
+                <h2>سورة البلد اللوح الأول</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="surah" onclick="playSurah('https:\\archive.org/download/20250304_20250304_0855/%D8%A7%D9%84%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A.mp3')">
+                <h2>سورة الليل اللوح الثاني</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="surah" onclick="playSurah('https:\\archive.org/download/20250304_20250304_0912/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%20%D8%A7%D9%84%D8%A3%D9%88%D9%84.mp3')">
+                <h2>سورة الليل اللوح الأول</h2>
+            </div>
+        </div>
+    </main>
+        <div  id="audio-container" class="audio-container">
+            <audio id="audioPlayer" controls loop preload="none"></audio>
+        </div>
+    <script>
+        function goHome() {
+            window.location.href = "../../../index.html"; // الصفحة الرئيسية
+        }
+        function goBack() {
+            window.location.href = "../assanawat.html";
+         }
+    </script>
+    <script src="/script.js"></script>
+</body>
+</html>
