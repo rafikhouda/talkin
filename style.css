@@ -45,7 +45,7 @@ nav a:hover {
     cursor: pointer;
 }
 .container-index{
-    background-image: url(images/12.png);
+    background-image: url(/images/12.png);
     max-width: 600px;
     margin: auto;
     padding: 20px;
