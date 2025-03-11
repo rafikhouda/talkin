@@ -1,9 +1,15 @@
-body {
+body{
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
+    background-image: url('/images/15.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    height: 100vh;
     margin: 0;
-    padding: 0;
+}
+body::-webkit-scrollbar {
+    display: none; /* إخفاء الشريط في كروم وسفاري */
 }
 header {
     direction: rtl;
@@ -153,7 +159,15 @@ footer {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    body {
+        overflow: auto;
+        scrollbar-width: none; /* لمتصفحات فايرفوكس */
+        -ms-overflow-style: none; /* لمتصفحات إنترنت إكسبلورر وإيدج */
+    }
+    body::-webkit-scrollbar {
+        display: none; /* لمتصفحات كروم وسفاري */
+    }
     header {
         direction: rtl;
         flex-direction: row;
