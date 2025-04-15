@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السور</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="/style.css">   
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="شعار الموقع">
+            <h1 class="quran-title">تلقين القرآن الكريم</h1>
+        </div>
+        
+    </header>
+    <main>
+        <ion-icon title="الصفحة الرئيسة" class="back-button" name="home-outline" onclick="goHome()"></ion-icon>
+        
+        <div class="container">
+            <div class="surah" onclick="goSana1()">
+                <h2>السنة 1 إبتدائي</h2>
+            </div>
+            <div class="surah" onclick="playSurah('https:\\server6.mp3quran.net/abkr/036.mp3')">
+                <h2>السنة 2 إبتدائي</h2>
+            </div>
+            <div class="surah" onclick="playSurah('https:\\server6.mp3quran.net/abkr/001.mp3')">
+                <h2>السنة 3 إبتدائي</h2>
+            </div>
+            <div class="surah" onclick="playSurah('https:\\server6.mp3quran.net/abkr/036.mp3')">
+                <h2>السنة 4 إبتدائي</h2>
+            </div>
+            <div class="surah" onclick="playSurah('https:\\server6.mp3quran.net/abkr/001.mp3')">
+                <h2>السنة 5 إبتدائي</h2>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        function goHome() {
+            window.location.href = "/../index.html"; // استبدل بعنوان الصفحة الرئيسية
+        }
+        function goSana1(params) {
+             window.location.href = "./suwar/suwarsanaoula.html";
+         }
+         
+    </script>
+</body>
+</html>

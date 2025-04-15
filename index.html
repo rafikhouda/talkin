@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تلقين القرآن الكريم</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.png" alt="شعار الموقع">
+            <h1 class="quran-title">تلقين القرآن الكريم</h1>
+        </div>
+        <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+        <nav id="menu">
+            <a href="index.html">الرئيسية</a>
+            <a href="#">عن التطبيق</a>
+            <a href="#">تلقين السور</a>
+            <a href="#">تصفح المصحف</a>
+            <a href="Important links/index.html">روابط مهمّة</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container-index">
+            <div class="container-in" onclick="goSurah()">
+                <h2>تلقين السور</h2>
+                <p>صوت</p>
+                <ion-icon name="ear-outline"></ion-icon>
+            </div>
+            <div class="container-in" onclick="goSurahVidec()">
+                <h2>تلقين السور</h2>
+                <p>فيديو</p>
+                <ion-icon name="eye-outline"></ion-icon>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/jdL9i-jiNbY?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <script>
+        function goSurah() {
+    window.location.href = "./audio/1_ap/assanawat.html"; 
+    }
+    function goSurahVidec() {
+        window.location.href = "./video/assanawat.html";
+    }
+    </script>
+</body>
+</html>

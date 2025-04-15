@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فيديوهات السنة الأولى</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        article{
+            width: 50%;
+            float: right;
+        } 
+        
+        article h4{
+            margin-bottom: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 20px;
+            font-size: 20px;
+            border-left: solid #f9b94f 10px;
+            background: #5ac3e4;
+            padding: 12px;
+        }
+        article iframe{          
+            margin: auto;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        hr {
+            visibility: hidden;
+        }
+        #suraSelector{
+            position: relative;
+    width: 200px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        #suraSelector select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    text-align: right; /* ضبط النص إلى اليمين */
+    font-family: "Cairo", sans-serif; /* خط عربي أنيق */
+    appearance: none; /* إزالة التنسيق الافتراضي للمتصفح */
+    outline: none;
+    cursor: pointer;
+}
+#suraSelector::after {
+    content: "▼"; /* رمز السهم */
+    font-size: 14px;
+    color: #333;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+        @media (max-width: 768px){
+            article{
+                width: 100%;
+                float: none;
+            }
+            #suraSelector{
+            position: relative;
+            width: 100px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="شعار الموقع">
+            <h1 class="quran-title">تلقين القرآن الكريم</h1>
+        </div>
+        <!-- <div class="left-section">
+            <span class="page-title">تلقين السور</span>
+            <ion-icon class="icon" name="eye-outline"></ion-icon>
+        </div> -->
+        
+    </header>
+    <main>
+        <ion-icon title="الصفحة الرئيسة" class="back-button" name="home-outline" onclick="goHome()"></ion-icon>
+        <ion-icon title="العودة إلى الوراء" class="backspace-button" name="backspace-outline" onclick="goBack()"></ion-icon>
+        <hr>
+        <!-- مربع البحث -->
+        <h2>اختر سورة</h2>
+        <select id="suraSelector" onchange="displayVideo()">
+            <option value="all">---</option>
+            <option value="الفاتحة">الفاتحة</option>
+            <option value="الناس">الناس</option>
+            <option value="الفلق">الفلق</option>
+            <option value="الإخلاص">الإخلاص</option>
+            <option value="المسد">المسد</option>
+            <option value="النصر">النصر</option>
+            <option value="الكافرون">الكافرون</option>
+            <option value="الكوثر">الكوثر</option>
+            <option value="الماعون">الماعون</option>
+            <option value="قريش">قريش</option>
+            <option value="الفيل">الفيل</option>
+            <option value="الهمزة">الهمزة</option>
+            <option value="العصر">العصر</option>
+            <option value="التكاثر">التكاثر</option>
+            <option value="القارعة">القارعة</option>
+            <option value="العاديات">العاديات</option>
+            <option value="الزلزلة">الزلزلة</option>
+            <option value="البينة">البينة</option>
+            <option value="القدر">القدر</option>
+            <option value="العلق">العلق</option>
+            <option value="التين">التين</option>
+            <option value="الشرح">الشرح</option>
+            <option value="الضحى">الضحى</option>
+            <option value="الليل">الليل</option>
+            <option value="الشمس">الشمس</option>
+            <option value="البلد">البلد</option>
+        </select>   
+    </main>
+    
+    <article class="video-item" id="الفاتحة">
+        <h4>سورة الفاتحة</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JGH4EJsPQrI?si=5HSo9jBrvcEiB-Mw&amp;start=23?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الناس">
+        <h4>سورة الناس</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7X33Oc3Udj8?si=P1hy2SYpWvQRJHN2&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الفلق">
+        <h4>سورة الفلق</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/yYB4cbH6NGQ?si=haZ5hJCc_T7MyGIS&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الإخلاص">
+        <h4>سورة الإخلاص</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-OIihTEYzYs?si=BrjvSMMnYaUVfvO6&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="المسد">
+        <h4>سورة المسد</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/lF2BunDAJDg?si=_pN1_IN3h3YgU_2G&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="النصر">
+        <h4>سورة النصر</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/P4Wp1sU4_W4?si=4IS2rX-Cd9-_OumO&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الكافرون">
+        <h4>سورة الكافرون</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/BalTXjkbZzE?si=oUY1cwJkm55mJDVX&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الكوثر">
+        <h4>سورة الكوثر</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/AJ1YwdquoT0?si=F-oY5VLOH_r3mJh4&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الماعون">
+        <h4>سورة الماعون</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/w1FHI8JIsKQ?si=5NsYIqxLLH2AWoAU&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="قريش">
+        <h4>سورة قريش</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/F41fki5iGbA?si=o7LcWRIkP048os6d&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الفيل">
+        <h4>سورة الفيل</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/iLNV_echTgI?si=8iA0AsZmF1n_2_cR&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الهمزة">
+        <h4>سورة الهمزة</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/a59ZpUoRj0o?si=f2MG_ZRb7guQFfN7&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="العصر">
+        <h4>سورة العصر</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Tvg7kreMBDg?si=FZVdecsFeOUg-93Y&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="التكاثر">
+        <h4>سورة التكاثر</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/jCU3EIp30tY?si=z0gherRn1LuUnM42&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="القارعة">
+        <h4>سورة القارعة</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/OgzZKOLy86U?si=oV2FBISSqzXZ1VCE&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="العاديات">
+        <h4>سورة العاديات</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/TtqC0osSPEk?si=fLuATXzbCJO0Px_-&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الزلزلة">
+        <h4>سورة الزلزلة</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/S1NFFIdmvpw?si=LQXhOMzFOePRvzeS&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="البينة">
+        <h4>سورة البينة</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0jsAfsGferQ?si=YHNzHA8kx8lFHGMr&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="القدر">
+        <h4>سورة القدر</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-E1fHANIEcc?si=_7FxeTiiap92Detu&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="العلق">
+        <h4>سورة العلق</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/j-ElJRAE73o?si=KzOYyzuYRhgq9duX&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="التين">
+        <h4>سورة التين</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YAH-dsVWL-o?si=35Y0N-Uia2JA25IH&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الشرح">
+        <h4>سورة الشرح</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/DZNIskvjtHI?si=ueJmnE2byNrl6240&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الضحى">
+        <h4>سورة الضحى</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/leysYtupB9E?si=4NoQi7ZzuYQ9DcIM&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الليل">
+        <h4>سورة الليل، اللوح 01</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/XEunS5CDJpk?si=cmDjyYlxrdQbORe5&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الليل">
+        <h4>سورة الليل، اللوح 02</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JMCuB6q3PjI?si=dDvlGovdsC_zsv9C&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <article class="video-item" id="الشمس">
+        <h4>سورة الشمس</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dcgP958A-DQ?si=K2xWSViFDzajK7Vn&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+    <div class="video-item" id="البلد">
+        <article >
+            <h4>سورة البلد؛ اللوح 01</h4>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OVFvp2wBKF4?si=G8O1PdV1fx8SKCRt&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </article>
+        <article>
+            <h4>سورة البلد؛ اللوح02</h4>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dfpyPQsAxu8?si=f6dSM4bsQw7TYFmP&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </article>
+    </div>
+
+
+    <script>
+        function goHome() {
+            window.location.href = "../../index.html"; // الصفحة الرئيسية
+        }
+        function goBack() {
+            window.location.href = "../assanawat.html";
+         }
+         function displayVideo() {
+            var selectedVideo = document.getElementById("suraSelector").value;
+            var videos = document.getElementsByClassName("video-item");
+            
+            for (var i = 0; i < videos.length; i++) {
+                videos[i].style.display = "none";
+            }  if(selectedVideo === "all") {
+                for (var i = 0; i < videos.length; i++) {
+                    videos[i].style.display = "block";
+                }
+            }
+            
+            else if (selectedVideo) {
+                document.getElementById(selectedVideo).style.display = "block";
+            }
+        }
+        
+    </script>
+    <script src="/script.js"></script>
+</body>
+</html>

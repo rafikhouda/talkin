@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="مؤسّسة الشيخ عمي سعيد">
+    <meta name="description" content="روابط السوشل ميديا للمؤسّسة">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <title>روابط للتواصل</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="./images/logo-32x32.png" type="image/x-icon">
+</head>
+
+<body>
+    <div>
+        <ion-icon class="back-button" name="home-outline" onclick="goHome()"></ion-icon>
+    </div>
+    <article class="profile-card">
+        <section class="profile-card__header">
+            <div class="profile-card__avatar">
+                <figure>
+                    <img src="./images/logo.png" alt="Ammi-Said Logo" width="418" height="433" loading="lazy">
+                    <figcaption class="offscreen">AMS-Avatar</figcaption>
+                </figure>
+            </div>
+            <h1 class="profile-card__name">مؤسّسة الشيخ عمي سعيد</h1>
+            <p class="profile-card__subtitle">ثقافة 🔸 تربية 🔸 تراث</p>
+            <p class="profile-card__desc nowrap"><q>🔗 روابط مهمة 🔗</q></p>
+        </section>
+
+        <section class="profile-card__links">
+            <a href="https://www.irwane.org/" target="_blank" class="profile-card__link profile-card__link--SiteWeb nowrap center">موقع المؤسّسة</a>
+            <a href="https://www.facebook.com/irwane.org" target="_blank" class="profile-card__link profile-card__link--Facebook nowrap center">Facebook</a>
+            <a href="https://t.me/ammisaidlibrary" target="_blank" class="profile-card__link profile-card__link--Telegram nowrap center">Telegram</a>
+            <a href="#" target="_blank" class="profile-card__link profile-card__link--X nowrap center">Twitter</a>
+
+        </section>
+    </article>
+    <script>
+        function goHome() {
+            window.location.href = "../index.html"; // استبدل "index.html" بعنوان صفحتك الرئيسية
+        }
+    </script>
+    
+</body>
+</html>
