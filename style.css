@@ -178,7 +178,7 @@ footer {
         display: none; /* لمتصفحات كروم وسفاري */
     }
     header {
-        background-image: url(/images/168.png);
+        background-image: url(./images/168.png);
         background-position-x: left;
         direction: rtl;
         flex-direction: row;
