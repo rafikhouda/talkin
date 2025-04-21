@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المصحف الشريف</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f1f1f1;
+      direction: rtl;
+      text-align: right;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: #222;
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    #surahTitle {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .ayah {
+      background-color: white;
+      margin: 10px 0;
+      padding: 14px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      position: relative;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .ayah:hover {
+      background-color: #f9f9f9;
+    }
+
+    .ayah.selected {
+      background-color: #dff0d8;
+      border-right: 5px solid #4CAF50;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #eee;
+      border: none;
+      border-radius: 5px;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 14px;
+      display: none;
+    }
+
+    .ayah:hover .copy-btn {
+      display: inline-block;
+    }
+
+    .dark-mode {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .ayah {
+      background-color: #2e2e2e;
+    }
+
+    .dark-mode .ayah:hover {
+      background-color: #3a3a3a;
+    }
+
+    .dark-mode .copy-btn {
+      background-color: #444;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 20px;
+        padding: 16px;
+      }
+      .dark-toggle {
+        font-size: 14px;
+        padding: 5px 10px;
+      }
+      input, select {
+        font-size: 16px;
+        padding: 10px;
+      }
+      .ayah {
+        font-size: 16px;
+        padding: 12px;
+      }
+      .copy-btn {
+        font-size: 12px;
+        padding: 3px 6px;
+      }
+      #surahTitle {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    المصحف الشريف
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+  </header>
+  <div class="container">
+    <input type="text" id="searchInput" placeholder="ابحث عن كلمة أو آية..." />
+    <select id="surahSelect">
+      <option value="">-- اختر السورة --</option>
+    </select>
+    <div id="surahTitle"></div>
+    <div id="ayahContainer"></div>
+  </div>
+  <script>
+    const surahNames = [
+      "الفاتحة", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال", "التوبة",
+      "يونس", "هود", "يوسف", "الرعد", "إبراهيم", "الحجر", "النحل", "الإسراء", "الكهف", "مريم", "طه",
+      "الأنبياء", "الحج", "المؤمنون", "النور", "الفرقان", "الشعراء", "النمل", "القصص", "العنكبوت", "الروم",
+      "لقمان", "السجدة", "الأحزاب", "سبأ", "فاطر", "يس", "الصافات", "ص", "الزمر", "غافر",
+      "فصلت", "الشورى", "الزخرف", "الدخان", "الجاثية", "الأحقاف", "محمد", "الفتح", "الحجرات", "ق",
+      "الذاريات", "الطور", "النجم", "القمر", "الرحمن", "الواقعة", "الحديد", "المجادلة", "الحشر", "الممتحنة",
+      "الصف", "الجمعة", "المنافقون", "التغابن", "الطلاق", "التحريم", "الملك", "القلم", "الحاقة", "المعارج",
+      "نوح", "الجن", "المزمل", "المدثر", "القيامة", "الإنسان", "المرسلات", "النبأ", "النازعات", "عبس",
+      "التكوير", "الانفطار", "المطففين", "الانشقاق", "البروج", "الطارق", "الأعلى", "الغاشية", "الفجر", "البلد",
+      "الشمس", "الليل", "الضحى", "الشرح", "التين", "العلق", "القدر", "البينة", "الزلزلة", "العاديات",
+      "القارعة", "التكاثر", "العصر", "الهمزة", "الفيل", "قريش", "الماعون", "الكوثر", "الكافرون", "النصر",
+      "المسد", "الإخلاص", "الفلق", "الناس"
+    ];
+
+    const surahSelect = document.getElementById('surahSelect');
+    const searchInput = document.getElementById('searchInput');
+    const ayahContainer = document.getElementById('ayahContainer');
+    const surahTitle = document.getElementById('surahTitle');
+    let allAyat = [];
+
+    surahNames.forEach((name, index) => {
+      const option = document.createElement('option');
+      option.value = index + 1;
+      option.textContent = `${index + 1} - ${name}`;
+      surahSelect.appendChild(option);
+    });
+
+    fetch('quran.txt')
+      .then(res => res.text())
+      .then(text => {
+        const lines = text.trim().split('\n');
+        allAyat = lines.map(line => {
+          const [suraNum, suraName, ayah] = line.split('|');
+          return { suraNum, suraName, ayah };
+        });
+        displayAyat(allAyat);
+      });
+
+    function displayAyat(ayat) {
+      ayahContainer.innerHTML = '';
+      ayat.forEach(({ suraNum, suraName, ayah }) => {
+        const div = document.createElement('div');
+        div.className = 'ayah';
+        div.innerHTML = `
+          <button class="copy-btn" onclick="copyToClipboard(this)">نسخ</button>
+          ${ayah}
+        `;
+        div.addEventListener('click', () => {
+          document.querySelectorAll('.ayah').forEach(e => e.classList.remove('selected'));
+          div.classList.add('selected');
+        });
+        ayahContainer.appendChild(div);
+      });
+    }
+
+    function copyToClipboard(btn) {
+      const text = btn.parentElement.innerText.replace("نسخ", "").trim();
+      navigator.clipboard.writeText(text);
+      btn.textContent = '✔ تم النسخ';
+      setTimeout(() => btn.textContent = 'نسخ', 1000);
+    }
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim();
+      const filtered = allAyat.filter(a => a.ayah.includes(q));
+      surahTitle.textContent = q ? `نتائج البحث عن: \"${q}\"` : '';
+      displayAyat(filtered);
+    });
+
+    surahSelect.addEventListener('change', () => {
+      const val = surahSelect.value;
+      if (val === '') {
+        surahTitle.textContent = '';
+        displayAyat(allAyat);
+      } else {
+        const name = surahNames[val - 1];
+        surahTitle.textContent = `سورة ${name}`;
+        const filtered = allAyat.filter(a => a.suraNum === val);
+        displayAyat(filtered);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
