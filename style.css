@@ -33,7 +33,7 @@ body::-webkit-scrollbar {
         4px -4px 0px #7d000056;
 }
 header {
-    background-image: url(../images/168.png);
+    background-image: url('../images/168.png');
     background-repeat: no-repeat;
     background-position-x: center;
     direction: rtl;
@@ -178,7 +178,7 @@ footer {
         display: none; /* لمتصفحات كروم وسفاري */
     }
     header {
-        background-image: url(../images/168.png);
+        background-image: url('../images/168.png');
         background-position-x: left;
         direction: rtl;
         flex-direction: row;
