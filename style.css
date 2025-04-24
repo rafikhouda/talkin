@@ -33,7 +33,7 @@ body::-webkit-scrollbar {
         4px -4px 0px #7d000056;
 }
 header {
-    background-image: url('../images/168.png');
+    background-image: url('./images/168.png');
     background-repeat: no-repeat;
     background-position-x: center;
     direction: rtl;
