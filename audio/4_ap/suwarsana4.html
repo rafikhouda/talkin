@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السور</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="./../../style.css">
+
+    <style>
+        .container-end {
+    background: #00000000;
+    color: #00000000;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+@media (min-width: 1024px){
+        .container-in{
+            max-width: 50%;
+            margin: 30px auto 30px auto;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./../../images/logo.png" alt="شعار الموقع">
+            <h1 class="quran-title">تلقين القرآن الكريم</h1>
+        </div>
+    </header>
+    <main>
+        <ion-icon class="back-button" name="home-outline" onclick="goHome()"></ion-icon>
+        <ion-icon title="العودة إلى الوراء" class="backspace-button" name="backspace-outline" onclick="goBack()"></ion-icon>
+        <hr>
+        <!-- مربع البحث -->
+        <h2>اختر سورة</h2>
+        <select id="suraSelector" onchange="displayAudio()">
+            <option value="all">---</option>
+            <option value="التحريم">التحريم</option>
+            <option value="الطلاق">الطلاق</option>
+            <option value="التغابن">التغابن</option>
+            <option value="المنافقون">المنافقون</option>
+            <option value="الجمعة">الجمعة</option>
+            <option value="الصف">الصف</option>
+            <option value="الممتحنة">الممتحنة</option>
+            <option value="الحشر">الحشر</option>
+            <option value="المجادلة">المجادلة</option>
+            <option value="ٱلۡحَدِيد">ٱلۡحَدِيد</option>
+            <option value="ٱلۡوَاقِعَة">ٱلۡوَاقِعَة</option>
+            <option value="ٱلرَّحۡمَٰنُ">ٱلرَّحۡمَٰنُ</option>
+        </select>
+
+        <div class="container-in التحريم" onclick="playSurah('https://archive.org/download/1_20250510_20250510_1127/%D8%A7%D9%84%D8%AA%D8%AD%D8%B1%D9%8A%D9%85%201.mp3')">
+            <h2>سورة التحريم اللوح 01</h2>
+        </div>
+
+        <div class="container-in التحريم" onclick="playSurah('https://archive.org/download/02_20250510_20250510_1141/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AD%D8%B1%D9%8A%D9%85%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة التحريم اللوح 02</h2>
+        </div>
+
+        <div class="container-in التحريم" onclick="playSurah('https://archive.org/download/03_20250510_20250510_1152/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AD%D8%B1%D9%8A%D9%85%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة التحريم اللوح 03</h2>
+        </div>
+
+        <div class="container-in التحريم" onclick="playSurah('https://archive.org/download/04_20250511/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AD%D8%B1%D9%8A%D9%85%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2004.mp3')">
+            <h2>سورة التحريم اللوح 04</h2>
+        </div>
+
+        <div class="container-in الطلاق" onclick="playSurah('https://archive.org/download/01_20250511/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D9%82%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة الطلاق اللوح 01</h2>
+        </div>
+
+        <div class="container-in الطلاق" onclick="playSurah('https://archive.org/download/02_20250511_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D9%82%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة الطلاق اللوح 02</h2>
+        </div>
+
+        <div class="container-in الطلاق" onclick="playSurah('https://archive.org/download/03_20250511_20250511/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D9%82%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة الطلاق اللوح 03</h2>
+        </div>
+
+        <div class="container-in الطلاق" onclick="playSurah('https://archive.org/download/04_20250511_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D9%82%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2004.mp3')">
+            <h2>سورة الطلاق اللوح 04</h2>
+        </div>
+
+        <div class="container-in التغابن" onclick="playSurah('https://archive.org/download/01_20250511_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AA%D8%BA%D8%A7%D8%A8%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة التغابن اللوح 01</h2>
+        </div>
+
+        <div class="container-in التغابن" onclick="playSurah('https://archive.org/download/02_20250511_20250511/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AA%D8%BA%D8%A7%D8%A8%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة التغابن اللوح 02</h2>
+        </div>
+
+        <div class="container-in التغابن" onclick="playSurah('https://archive.org/download/03_20250511_20250511_0931/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AA%D8%BA%D8%A7%D8%A8%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة التغابن اللوح 03</h2>
+        </div>
+
+        <div class="container-in التغابن" onclick="playSurah('https://archive.org/download/04_20250511_20250511/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AA%D8%BA%D8%A7%D8%A8%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2004.mp3')">
+            <h2>سورة التغابن اللوح 04</h2>
+        </div>
+        
+        <div class="container-in المنافقون" onclick="playSurah('https://archive.org/download/01_20250511_20250511/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D9%86%D8%A7%D9%81%D9%82%D9%88%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة المنافقون اللوح 01</h2>
+        </div>
+
+        <div class="container-in المنافقون" onclick="playSurah('https://archive.org/download/02_20250511_20250511_1017/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D9%86%D8%A7%D9%81%D9%82%D9%88%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة المنافقون اللوح 02</h2>
+        </div>
+
+        <div class="container-in المنافقون" onclick="playSurah('https://archive.org/download/03_20250511_20250511_1023/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D9%86%D8%A7%D9%81%D9%82%D9%88%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة المنافقون اللوح 03</h2>
+        </div>
+
+        <div class="container-in الجمعة" onclick="playSurah('https://archive.org/download/01_20250511_20250511_1030/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D9%85%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة الجمعة اللوح 01</h2>
+        </div>
+
+        <div class="container-in الجمعة" onclick="playSurah('https://archive.org/download/02_20250511_20250511_1041/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D9%85%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة الجمعة اللوح 02</h2>
+        </div>
+
+        <div class="container-in الجمعة" onclick="playSurah('https://archive.org/download/03_20250511_20250511_1053/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D9%85%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة الجمعة اللوح 03</h2>
+        </div>
+
+        <div class="container-in الصف" onclick="playSurah('https://archive.org/download/01_20250511_20250511_1108/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة الصف اللوح 01</h2>
+        </div>
+
+        <div class="container-in الصف" onclick="playSurah('https://archive.org/download/02_20250511_20250511_1122/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة الصف اللوح 02</h2>
+        </div>
+
+        <div class="container-in الصف" onclick="playSurah('https://archive.org/download/03_20250511_20250511_1141/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B5%D9%81%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة الصف اللوح 03</h2>
+        </div>
+
+        <div class="container-in الممتحنة" onclick="playSurah('https://archive.org/download/01_20250511_20250511_1200/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D8%AD%D9%86%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة الممتحنة اللوح 01</h2>
+        </div>
+
+        <div class="container-in الممتحنة" onclick="playSurah('https://archive.org/download/02_20250511_20250511_1220/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D8%AD%D9%86%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة الممتحنة اللوح 02</h2>
+        </div>
+
+        <div class="container-in الممتحنة" onclick="playSurah('https://archive.org/download/03_20250511_20250511_1234/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D8%AD%D9%86%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة الممتحنة اللوح 03</h2>
+        </div>
+
+        <div class="container-in الممتحنة" onclick="playSurah('https://archive.org/download/04_20250511_20250511_1300/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D8%AD%D9%86%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2004.mp3')">
+            <h2>سورة الممتحنة اللوح 04</h2>
+        </div>
+
+        <div class="container-in الحشر" onclick="playSurah('https://archive.org/download/01_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة الحشر اللوح 01</h2>
+        </div>
+
+        <div class="container-in الحشر" onclick="playSurah('https://archive.org/download/02_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة الحشر اللوح 02</h2>
+        </div>
+
+        <div class="container-in الحشر" onclick="playSurah('https://archive.org/download/03_20250512_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة الحشر اللوح 03</h2>
+        </div>
+
+        <div class="container-in الحشر" onclick="playSurah('https://archive.org/download/04_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2004.mp3')">
+            <h2>سورة الحشر اللوح 04</h2>
+        </div>
+
+        <div class="container-in الحشر" onclick="playSurah('https://archive.org/download/05_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2005.mp3')">
+            <h2>سورة الحشر اللوح 05</h2>
+        </div>
+
+        <div class="container-in الحشر" onclick="playSurah('https://archive.org/download/06_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2006.mp3')">
+            <h2>سورة الحشر اللوح 06</h2>
+        </div>
+
+        <div class="container-in الحشر" onclick="playSurah('https://archive.org/download/07_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2007.mp3')">
+            <h2>سورة الحشر اللوح 07</h2>
+        </div>
+
+        <div class="container-in المجادلة" onclick="playSurah('https://archive.org/download/01_20250512_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D8%AF%D9%84%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة المجادلة اللوح 01</h2>
+        </div>
+
+        <div class="container-in المجادلة" onclick="playSurah('https://archive.org/download/02_20250512_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D8%AF%D9%84%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة المجادلة اللوح 02</h2>
+        </div>
+
+        <div class="container-in المجادلة" onclick="playSurah('https://archive.org/download/03_20250512_20250512_1019/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D8%AF%D9%84%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة المجادلة اللوح 03</h2>
+        </div>
+
+        <div class="container-in المجادلة" onclick="playSurah('https://archive.org/download/04_20250512_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D8%AF%D9%84%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2004.mp3')">
+            <h2>سورة المجادلة اللوح 04</h2>
+        </div>
+
+        <div class="container-in المجادلة" onclick="playSurah('https://archive.org/download/05_20250512_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D8%AF%D9%84%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2005.mp3')">
+            <h2>سورة المجادلة اللوح 05</h2>
+        </div>
+
+        <div class="container-in المجادلة" onclick="playSurah('https://archive.org/download/06_20250512_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D8%AF%D9%84%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2006.mp3')">
+            <h2>سورة المجادلة اللوح 06</h2>
+        </div>
+
+        <div class="container-in المجادلة" onclick="playSurah('https://archive.org/download/07_20250512_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D8%AF%D9%84%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2007.mp3')">
+            <h2>سورة المجادلة اللوح 07</h2>
+        </div>
+
+        <div class="container-in ٱلۡحَدِيد" onclick="playSurah('https://archive.org/download/01_20250512_20250512_1112/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة ٱلۡحَدِيد اللوح 01</h2>
+        </div>
+
+        <div class="container-in ٱلۡحَدِيد" onclick="playSurah('https://archive.org/download/02_20250512_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة ٱلۡحَدِيد اللوح 02</h2>
+        </div>
+
+        <div class="container-in ٱلۡحَدِيد" onclick="playSurah('https://archive.org/download/03_20250512_20250512_1140/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة ٱلۡحَدِيد اللوح 03</h2>
+        </div>
+
+        <div class="container-in ٱلۡحَدِيد" onclick="playSurah('https://archive.org/download/04_20250512_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2004.mp3')">
+            <h2>سورة ٱلۡحَدِيد اللوح 04</h2>
+        </div>
+
+        <div class="container-in ٱلۡحَدِيد" onclick="playSurah('https://archive.org/download/05_20250512_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2005.mp3')">
+            <h2>سورة ٱلۡحَدِيد اللوح 05</h2>
+        </div>
+
+        <div class="container-in ٱلۡحَدِيد" onclick="playSurah('https://archive.org/download/06_20250512_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2006.mp3')">
+            <h2>سورة ٱلۡحَدِيد اللوح 06</h2>
+        </div>
+
+        <div class="container-in ٱلۡحَدِيد" onclick="playSurah('https://archive.org/download/07_20250512_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2007.mp3')">
+            <h2>سورة ٱلۡحَدِيد اللوح 07</h2>
+        </div>
+
+        <div class="container-in ٱلۡحَدِيد" onclick="playSurah('https://archive.org/download/08_20250512/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2008.mp3')">
+            <h2>سورة ٱلۡحَدِيد اللوح 08</h2>
+        </div>
+
+        <div class="container-in ٱلۡوَاقِعَة" onclick="playSurah('https://archive.org/download/01_20250512_20250512_1253/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة ٱلۡوَاقِعَة اللوح 01</h2>
+        </div>
+
+        <div class="container-in ٱلۡوَاقِعَة" onclick="playSurah('https://archive.org/download/02_20250512_20250512_1257/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة ٱلۡوَاقِعَة اللوح 02</h2>
+        </div>
+
+        <div class="container-in ٱلۡوَاقِعَة" onclick="playSurah('https://archive.org/download/03_20250513/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة ٱلۡوَاقِعَة اللوح 03</h2>
+        </div>
+
+        <div class="container-in ٱلۡوَاقِعَة" onclick="playSurah('https://archive.org/download/04_20250513/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2004.mp3')">
+            <h2>سورة ٱلۡوَاقِعَة اللوح 04</h2>
+        </div>
+
+        <div class="container-in ٱلۡوَاقِعَة" onclick="playSurah('https://archive.org/download/05_20250513/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2005.mp3')">
+            <h2>سورة ٱلۡوَاقِعَة اللوح 05</h2>
+        </div>
+
+        <div class="container-in ٱلۡوَاقِعَة" onclick="playSurah('https://archive.org/download/06_20250513/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2006.mp3')">
+            <h2>سورة ٱلۡوَاقِعَة اللوح 06</h2>
+        </div>
+
+        <div class="container-in ٱلرَّحۡمَٰنُ" onclick="playSurah('https://archive.org/download/01_20250513_20250513/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2001.mp3')">
+            <h2>سورة ٱلرَّحۡمَٰنُ اللوح 01</h2>
+        </div>
+
+        <div class="container-in ٱلرَّحۡمَٰنُ" onclick="playSurah('https://archive.org/download/02_20250513/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2002.mp3')">
+            <h2>سورة ٱلرَّحۡمَٰنُ اللوح 02</h2>
+        </div>
+
+        <div class="container-in ٱلرَّحۡمَٰنُ" onclick="playSurah('https://archive.org/download/03_20250513_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2003.mp3')">
+            <h2>سورة ٱلرَّحۡمَٰنُ اللوح 03</h2>
+        </div>
+
+        <div class="container-in ٱلرَّحۡمَٰنُ" onclick="playSurah('https://archive.org/download/04_20250513_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2004.mp3')">
+            <h2>سورة ٱلرَّحۡمَٰنُ اللوح 04</h2>
+        </div>
+
+        <div class="container-in ٱلرَّحۡمَٰنُ" onclick="playSurah('https://archive.org/download/05_20250513_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2005.mp3')">
+            <h2>سورة ٱلرَّحۡمَٰنُ اللوح 05</h2>
+        </div>
+
+        <div class="container-in ٱلرَّحۡمَٰنُ" onclick="playSurah('https://archive.org/download/06_20250513_202505/%D8%B3%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D9%84%D9%88%D8%AD%2006.mp3')">
+            <h2>سورة ٱلرَّحۡمَٰنُ اللوح 06</h2>
+        </div>
+
+        <div class="container-end" >
+            <h2>end</h2>
+        </div>
+        
+    </main>
+        <div  id="audio-container" class="audio-container">
+            <audio id="audioPlayer" controls loop preload="none"></audio>
+        </div>
+    <script>
+        function goHome() {
+            window.location.href = "../../index.html"; // الصفحة الرئيسية
+        }
+        function goBack() {
+            window.location.href = "../assanawat.html";
+        }
+        function displayAudio() {
+            var selectedAudio = document.getElementById("suraSelector").value;
+            var audios = document.getElementsByClassName("container-in");
+            
+            // إخفاء جميع العناصر أولاً
+            for (var i = 0; i < audios.length; i++) {
+                audios[i].style.display = "none";
+            }
+            // إذا تم اختيار "عرض الكل"
+            if (selectedAudio === "all") {
+                for (var i = 0; i < audios.length; i++) {
+                    audios[i].style.display = "block";
+                }
+            }
+            // إظهار كل العناصر التي تحمل class مطابق
+            else if (selectedAudio) {
+                var matched = document.getElementsByClassName(selectedAudio);
+                for (var i = 0; i < matched.length; i++) {
+                    matched[i].style.display = "block";
+                }
+            }
+        }
+    </script>
+    <script src="./../../script.js"></script>
+</body>
+</html>
