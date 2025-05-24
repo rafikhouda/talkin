@@ -18,6 +18,44 @@
     transition: 0.3s;
 }
 @media (min-width: 1024px){
+    /* Scroll to top button styles */
+#scrollToTop {
+  position: fixed;
+  bottom: 150px;
+  right: 80px;
+  width: 50px;
+  height: 50px;
+  background: #7fd0ee;
+  border: none;
+  border-radius: 50%;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#scrollToTop.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#scrollToTop:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+#scrollToTop:active {
+  transform: translateY(0);
+}
         .container-in{
             max-width: 50%;
             margin: 30px auto 30px auto;
@@ -295,6 +333,7 @@
         </div>
         
     </main>
+    <button id="scrollToTop" aria-label="Scroll to top">↑</button>
         <div  id="audio-container" class="audio-container">
             <audio id="audioPlayer" controls loop preload="none"></audio>
         </div>
@@ -327,6 +366,25 @@
                 }
             }
         }
+        // Get the button element
+const scrollToTopButton = document.getElementById('scrollToTop');
+
+// Show button when scrolling down 200px from the top
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    scrollToTopButton.classList.add('visible');
+  } else {
+    scrollToTopButton.classList.remove('visible');
+  }
+});
+
+// Smooth scroll to top when button is clicked
+scrollToTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
     </script>
     <script src="./../../script.js"></script>
 </body>
